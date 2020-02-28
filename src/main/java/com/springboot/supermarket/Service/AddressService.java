@@ -16,16 +16,30 @@ public class AddressService {
 	UserService userservice;
 
 	public User CreateorUpdateAddress(Long id, Address address) {
-		Optional<UserEntity> userentityop = userservice.findById(id);
-		UserEntity userentity = userentityop.get();
-		User user = ConvertToUser.ConvertToUser(userentity);
-		if (address != null) {
+		User user = null;
+		if (id != null) {
+			Optional<UserEntity> userentityop = userservice.findById(id);
+			UserEntity userentity = userentityop.get();
+			user = ConvertToUser.ConvertToUser(userentity);
 			user.setAddress(address);
 		}
 		userservice.updateUser(user);
 		return user;
-
 	}
-	
+
+	public User deleteAddress(Long id) {
+		User user = null;
+		if (id != null) {
+			Optional<UserEntity> userentityop = userservice.findById(id);
+			UserEntity userentity = userentityop.get();
+			user = ConvertToUser.ConvertToUser(userentity);
+			if (user.getAddress() != null) {
+				Address address = new Address();
+				user.setAddress(address);
+			}
+			userservice.updateUser(user);
+		}
+		return user;
+	}
 
 }
