@@ -17,7 +17,7 @@ public class AddressService {
 
 	public User CreateorUpdateAddress(Long id, Address address) {
 		User user = null;
-		if (id != null) {
+		if (id != null && address!=null) {
 			Optional<UserEntity> userentityop = userservice.findById(id);
 			UserEntity userentity = userentityop.get();
 			user = ConvertToUser.ConvertToUser(userentity);
