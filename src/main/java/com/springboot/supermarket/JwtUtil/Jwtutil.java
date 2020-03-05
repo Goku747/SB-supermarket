@@ -13,7 +13,7 @@ import io.jsonwebtoken.Claims;
 
 public class Jwtutil {
 
-	private static final String SECRET_KEY = "testapplication";
+	private static final String SECRET_KEY = "SuperMarketApp";
 
 	public static String createJWT(String id, String issuer, String subject, long ttlMillis) {
 
