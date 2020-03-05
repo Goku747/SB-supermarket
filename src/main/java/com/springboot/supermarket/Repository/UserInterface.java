@@ -9,5 +9,8 @@ public interface UserInterface extends JpaRepository<UserEntity, Long> {
 	public UserEntity findByUsername(String username);
 
 	public void deleteByUsername(String username);
+	public UserEntity findByUsernameandPassword(String username, String password);
+	
+	
 
 }
